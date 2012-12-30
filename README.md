@@ -8,7 +8,9 @@ A experimental expression parser.
 The grammar used in this parser is a classical expression grammer, as is shown below:
 
   E := E a T | T
+
   T := T b F | T
+
   F := i | (E)
 
 The non-terminal character is E, T, F while others are terminal characters. The 'a' here is one of '+' or '-' and b is one of '*' or '/'. The 'i' here is the integer(no float point number).
