@@ -11,7 +11,7 @@ public:
 
     token_t process(istream &in);
 
-private:
+protected:
     void reduction(stack<token_t> &numStack, stack<token_t> &oprTokens);
 };
 

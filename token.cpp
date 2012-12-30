@@ -72,6 +72,9 @@ ostream& operator << (ostream& out, token_t& token)
     case token_t::VARIABLE:
         out << "[" << kl[token.value] << "]";
         break;
+    case token_t::OPERATOR:
+        out << "[" << (char) token.value << "]";
+        break;
     case token_t::NONE:
         out << "[None]";
         break;

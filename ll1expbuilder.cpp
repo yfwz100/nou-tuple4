@@ -12,7 +12,7 @@ LL1ExpBuilder::LL1ExpBuilder()
 {
 }
 
-int token_type_map(const token_t &token)
+static int token_type_map(const token_t &token)
 {
     switch (token.type) {
     case token_t::NUMBER:
@@ -52,6 +52,7 @@ token_t LL1ExpBuilder::process(istream &in)
 {
     token_t token;
 
+    // the most important here is the Reduction item which indicate the generation of the quatien
     DItem deduction[][4] = {
         {DItem(1, DItem::NT), DItem(2, DItem::NT)},
         {DItem(1, DItem::NT), DItem(0, DItem::R), DItem(2, DItem::NT), DItem(1, DItem::T)},
@@ -128,6 +129,8 @@ token_t LL1ExpBuilder::process(istream &in)
         }
     }
     while (!in.eof());
+
+    token = numStack.top();
 
     return token;
 }

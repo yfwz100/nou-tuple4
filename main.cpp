@@ -16,8 +16,10 @@
 
 #include "token.h"
 #include "expbuilder.h"
+
 #include "ll1expbuilder.h"
 #include "rexpbuilder.h"
+#include "slr1expbuilder.h"
 
 using namespace std;
 
@@ -32,13 +34,9 @@ int main(int argc, char* argv[])
         fin.open(argv[1]);
     }
 
-    ExpBuilder* expbuilder = new LL1ExpBuilder();
+    ExpBuilder* expbuilder = new SLR1ExpBuilder();
 
-//    do
-//    {
-        expbuilder->process(fin);
-//    }
-//    while (! fin.eof());
+    expbuilder->process(fin);
 
     delete expbuilder;
 
