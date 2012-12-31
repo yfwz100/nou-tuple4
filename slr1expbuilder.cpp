@@ -67,7 +67,6 @@ token_t SLR1ExpBuilder::process(istream &in)
     do {
         in >> token;
         t = token_type_map(token);
-        cout << token << endl;
 
         if (token.type == token_t::NUMBER || token.type == token_t::VARIABLE) {
             numStack.push(token);

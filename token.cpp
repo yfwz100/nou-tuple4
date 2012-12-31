@@ -8,7 +8,7 @@ int new_variable_token(string s) {
     return kl.size() - 1;
 }
 
-istream& operator>>(istream& in, token_t& token)
+istream& operator>> (istream& in, token_t& token)
 {
     char c = in.get();
     if (c == -1) {
@@ -41,7 +41,7 @@ istream& operator>>(istream& in, token_t& token)
             // Read a variable token: replace it with elegant code!!!
             do {
                 ss << c;
-                c == in.get();
+                c = in.get();
             }
             while(strchr("+-*/=()", c) == NULL && !in.eof());
             if (! in.eof()) {
